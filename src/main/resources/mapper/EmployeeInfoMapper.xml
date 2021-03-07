@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juliajiang.aopdemo.employee.domain.mapper.EmployeeInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.juliajiang.aopdemo.employee.domain.storage.EmployeeInfo">
+        <id column="id" property="id"/>
+        <result column="employee_id" property="employeeId"/>
+        <result column="employee_name" property="employeeName"/>
+        <result column="department_id" property="departmentId"/>
+        <result column="business_id" property="businessId"/>
+        <result column="employee_address" property="employeeAddress"/>
+        <result column="employee_phone" property="employeePhone"/>
+        <result column="permission" property="permission"/>
+        <result column="is_technical" property="isTechnical"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, employee_id, employee_name, department_id, business_id, employee_address, employee_phone, permission, is_technical
+    </sql>
+
+    <select id="pageQuery" resultType="com.juliajiang.aopdemo.employee.dto.EmployeeDTO">
+        select * from t_employee_info e
+        <where>
+            <if test="entity.permission != null and entity.permission != ''">
+                AND ${entity.permission}
+            </if>
+            <if test="entity.isTechnical != null and entity.isTechnical != ''">
+                AND e.is_technical = #{entity.isTechnical}
+            </if>
+        </where>
+    </select>
+
+</mapper>
