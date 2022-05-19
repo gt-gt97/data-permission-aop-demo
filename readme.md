@@ -8,5 +8,5 @@
 
 ## 本文博客
 
-有关本项目的思路，可前往我的这篇博客查看：[SpringBoot-AOP实现数据权限管理](http://juliajiang.top/2021/03/07/SpringBoot-AOP实现数据权限管理/)
+有关本项目的思路：[SpringBoot-AOP实现数据权限管理](http://juliajiang.top/2021/03/07/SpringBoot-AOP实现数据权限管理/)
 
